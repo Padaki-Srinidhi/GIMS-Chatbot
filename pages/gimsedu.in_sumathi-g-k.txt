@@ -1,0 +1,11 @@
+Name:  	SUMATHI G K
+Designation:  	Associate Professor
+Qualification:  	MCA
+Area of Expertise:  	C, C++,Java, XHTML,CSS, JavaScript, Visual Basic ,Oracle (PL/SQL), AI,Computer Networks,Tableau,Power BI and Python.
+Year of Experience:  	22
+LinkedIn ID:	http://www.linkedin.com/in/sumathi-gk-a284a4281
+Email ID:  	Sumathi.gk@gimsedu.in
+Publications (Title of the paper journal name, Edition, Volume, Page no):	 
+Awards/Patents:	 
+Achievements:	Set exam paper for BSc and BCA courses for Bangalore University,Bangalore City University and VHD Science College. Worked extensively on Question paper setting and role as a Reviewer, evaluator at Universitylevel. Experiance in corporate teaching and software development on different platforms.
+Certification Courses:	Certificate in Software testing,Cegon Info Solutions. Diploma in Computer Programming Applications from Tata Unisys Ltd. Education Centre. SWAYAM-NPTEL Certification “Data science using Python”. SWAYAM-NPTEL Certification “Programming in Java” with gold certificate. Completed Certification course “Python 101 for Data Science” from IBM developer skill network.

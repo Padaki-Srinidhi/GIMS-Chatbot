@@ -13,6 +13,15 @@ openai_api_key = config["DEFAULT"]["openai_api_key"]
 # 🔹 Init FastAPI
 app = FastAPI()
 
+# add middleware for CORS
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins for development
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # # 🔹 OpenAI client
 # client_openai = OpenAI(api_key=openai_api_key)
 

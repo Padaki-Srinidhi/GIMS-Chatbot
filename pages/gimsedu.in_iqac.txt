@@ -1,0 +1,28 @@
+IQAC
+UGC in the XI Plan made a policy decision that all higher educational institutes should establish an Internal Quality Assurance Cell (IQAC) to maintain the momentum of quality consequences. IQAC was conceived as a mechanism to build and ensure a quality culture at the institutional level. The IQAC is meant for planning, guiding, and maintaining Quality Assurance (QA) and Quality Enhancement (QE) activities for the institution.
+
+The Internal Quality Assurance Cell (IQAC) at GIMS.
+
+The primary aim of IQAC is:
+
+To develop a system for conscious, consistent, and catalytic action to improve the academic and administrative performance of the institution.
+To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.
+S.No	Name	Designation	Role
+1	Dr.Geetha M Rajaram	Principal/Director	Chairperson
+2	S Chinnaraj	Secretary	Member-Management Representative
+3	H.S. Devadiga	Managing Trustee	Member Management Representative
+4	Dr. Jyothi P	Professor,
+Department of Commerce and Management	IQAC - Coordinator
+5	Ms. Ranjana Kumari	Professor & HOD,
+Department of Computer Applications	Member-Co-Ordinator
+6	Mr. Manu Kumar S V	Committee Member	Member-Co-Ordinator
+7	Mr. Uttam Kumar	Associate Professor &
+HOD, Department of Commerce & Management	Member
+8	Mr. Subhash S	Chief Librarian	Member
+9	Yash Kothari	Senior Manager – Product Management
+Evangelist for Gumlet.com	Member-Industry Representative
+10	Mallikarjuna S C	Agile Coach	Member-Industry Representative
+11	Bindu N	Alumni	Member- Alumni Representative
+12	Rakshitha B R	Alumni	Member- Alumni Representative
+13	Manasa S J	M.B.AIV Semester Student	Member- Student Representative
+14	Vinuth N	M.C.AIV Semester Student	Member- Student Representative
