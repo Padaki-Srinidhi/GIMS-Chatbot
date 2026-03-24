@@ -80,7 +80,7 @@ def ask_question(request: QueryRequest):
 
 
     answer = completion.choices[0].message
-
+    print(f"Answer: {answer}")
     # response = client_openai.chat.completions.create(
     #     model="gpt-4.1-mini",
     #     messages=[
