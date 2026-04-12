@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import bg from "./assets/bg.jpg";
+import logo from "./assets/logo.png";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -33,7 +35,6 @@ function App() {
         "No response";
 
       const botMessage = { sender: "bot", text: botReply };
-
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       setMessages((prev) => [
@@ -46,54 +47,141 @@ function App() {
   };
 
   return (
-    <div>
+  <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
+
+    {/* Background Layer */}
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        filter: "blur(6px) brightness(1.4)",
+        transform: "scale(1.05)",
+        zIndex: 0,
+      }}
+    />
+
+    {/* Welcome Text Layer */}
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1,
+        pointerEvents: "none", // so it doesn't block clicks
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "48px",
+          fontWeight: "800",
+          color: "white",
+          textShadow: "0 4px 20px rgba(0,0,0,0.4)",
+          margin: 0,
+          letterSpacing: "1px",
+          textAlign: "center",
+        }}
+      >
+        Welcome to
+      </h1>
+      <h1
+        style={{
+          fontSize: "56px",
+          fontWeight: "900",
+          color: "white",
+          textShadow: "0 4px 20px rgba(0,0,0,0.4)",
+          margin: "8px 0 16px",
+          letterSpacing: "2px",
+          textAlign: "center",
+        }}
+      >
+        GIMS Assistant 🎓
+      </h1>
+      <p
+        style={{
+          fontSize: "20px",
+          color: "rgba(255,255,255,0.85)",
+          textShadow: "0 2px 10px rgba(0,0,0,0.3)",
+          margin: 0,
+          textAlign: "center",
+        }}
+      >
+        Your college companion — ask me anything!
+      </p>
+    </div>
+
+    {/* All chat content sits above */}
+    <div style={{ position: "relative", zIndex: 2 }}>
+
       {/* Floating Button */}
-      <div className="chat-icon" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? "✖" : "💬"}
-      </div>
+      {!isOpen && (
+        <div className="chat-icon" onClick={() => setIsOpen(true)}>
+          💬
+        </div>
+      )}
 
-      {/* Chat Window */}
-      <div className={`chat-wrapper ${isOpen ? "open" : ""}`}>
-        <div className="chat-container">
-          
-          {/* Header */}
-          <div className="chat-header">
-            <span>GIMS Assistant</span>
-            <button onClick={() => setIsOpen(false)}>✖</button>
-          </div>
+      {/* Full-Screen Chat Overlay */}
+      {isOpen && (
+        <div className="chat-fullscreen-overlay">
+          <div className="chat-container">
 
-          {/* Messages */}
-          <div className="chat-box">
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`message ${msg.sender === "user" ? "user" : "bot"}`}
-              >
-                {msg.text}
+            {/* Header */}
+            <div className="chat-header">
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <img src={logo} alt="logo" style={{ width: "36px", height: "36px", borderRadius: "50%" }} />
+                <span>GIMS Assistant</span>
               </div>
-            ))}
+              <button onClick={() => setIsOpen(false)}>✖</button>
+            </div>
 
-            {/* Typing Indicator */}
-            {loading && <div className="message bot typing">Typing...</div>}
+            {/* Messages */}
+            <div className="chat-box">
+              {messages.map((msg, i) => (
+                <div key={i} className={`message-row ${msg.sender}`}>
+                  {msg.sender === "bot" && (
+                    <img src={logo} alt="bot" className="bot-avatar" />
+                  )}
+                  <div className={`message ${msg.sender}`}>
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
 
-            <div ref={chatEndRef}></div>
-          </div>
+              {loading && (
+                <div className="message-row bot">
+                  <img src={logo} alt="bot" className="bot-avatar" />
+                  <div className="message bot typing">Typing...</div>
+                </div>
+              )}
 
-          {/* Input */}
-          <div className="input-box">
-            <input
-              type="text"
-              placeholder="Type your message..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-            />
-            <button onClick={sendMessage}>➤</button>
+              <div ref={chatEndRef}></div>
+            </div>
+
+            {/* Input */}
+            <div className="input-box">
+              <input
+                type="text"
+                placeholder="Type your message..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+              />
+              <button onClick={sendMessage}>➤</button>
+            </div>
+
           </div>
         </div>
-      </div>
+      )}
+
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
