@@ -5,10 +5,11 @@ import os
 from sentence_transformers import SentenceTransformer
 from openai import OpenAI
 from configparser import ConfigParser
+from langchain_ollama import ChatOllama
 # 🔹 Load config
 config = ConfigParser()
 config.read("config/config.ini")
-openai_api_key = config["DEFAULT"]["openai_api_key"]
+# openai_api_key = config["DEFAULT"]["openai_api_key"]
 
 # 🔹 Init FastAPI
 app = FastAPI()
@@ -26,11 +27,11 @@ app.add_middleware(
 # client_openai = OpenAI(api_key=openai_api_key)
 
 HF_TOKEN = config["DEFAULT"]["HF_Token"]
-client_llama = OpenAI(
+llm = OpenAI(
     base_url="https://router.huggingface.co/v1",
     api_key=HF_TOKEN,
 )
-
+# llm = ChatOllama(model="qwen3.5:cloud", temperature=0)
 
 # 🔹 Embedding model
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -78,7 +79,7 @@ def ask_question(request: QueryRequest):
         Question:
         {user_query}
         """
-    completion = client_llama.chat.completions.create(
+    completion = llm.chat.completions.create(
         model="meta-llama/Llama-3.1-8B-Instruct:novita",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
